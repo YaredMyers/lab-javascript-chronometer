@@ -5,10 +5,8 @@
  }
 
  Chronometer.prototype.startClick = function () {
-   var count = 0;
  this.intervalId = setInterval(function(){
-   count++;
-   this.currentTime = count;
+   this.currentTime++ 
    console.log(this.currentTime);
    this.setTime();
     
@@ -75,6 +73,21 @@
 
 // };
 
-var newChrono = new Chronometer;
+
+
+// var newChrono = new Chronometer;
+
+// function btnLeftClick() {
+//   if (newChrono.intervalId === 0) {
+//      newChrono.startClick();
+//   } else {
+//     newChrono.stopClick();
+//     newChrono.intervalId = 0;
+//   }
+// }
+
+// function btnRightClick() {
+//   newChrono.resetClick();
+// }
 
 
