@@ -1,40 +1,80 @@
-// Constructor
-// function Chronometer() {
+ //Constructor
+ function Chronometer() {
+  this.currentTime = 0
+  this.intervalId = 0
+ }
 
-// }
+ Chronometer.prototype.startClick = function () {
+   var count = 0;
+ this.intervalId = setInterval(function(){
+   count++;
+   this.currentTime = count;
+   console.log(this.currentTime);
+   this.setTime();
+    
+ }.bind(this) ,1000) 
 
-// Chronometer.prototype.startClick = function () {
+ };
 
-// };
 
-// Chronometer.prototype.setMinutes = function () {
-  
-// };
 
-// Chronometer.prototype.setSeconds = function () {
-  
-// };
+ Chronometer.prototype.setMinutes = function () {
+  //var count = 0;
+    // setInterval(function(){
+    //   count++;
+    //   this.currentTime = count;
+    //   console.log(parseInt(this.currentTime / 60));
+    // }.bind(this) ,1000) 
+    return parseInt(this.currentTime / 60);
+  };
 
-// Chronometer.prototype.twoDigitsNumber = function () {
-  
-// };
+ 
 
-// Chronometer.prototype.setTime = function () {
 
-// };
+ Chronometer.prototype.setSeconds = function () {
+  // var count = 0;
+  //   setInterval(function(){
+  //     count++;
+  //     this.currentTime = count;
+  //     console.log(newChrono.twoDigitsNumber(this.currentTime % 60) );
+  //   }.bind(this) ,100) 
+  return (this.currentTime % 60);
+ };
+
+ Chronometer.prototype.twoDigitsNumber = function (num) {
+
+ if (num <= 9) {
+   return "0" + num.toString();
+ } else if (num < 60) {
+   return num.toString();
+ } else {
+   return "xx";
+ }
+ };
+
+ Chronometer.prototype.setTime = function () {
+  var minutes = this.twoDigitsNumber(this.setMinutes());
+  var second = this.twoDigitsNumber(this.setSeconds());
+
+
+ };
 
 // Chronometer.prototype.setMilliseconds = function () {
 
 // };
 
-// Chronometer.prototype.stopClick = function () {
-  
-// };
+ Chronometer.prototype.stopClick = function () {
+  clearInterval(this.intervalId);
+ };
 
-// Chronometer.prototype.resetClick = function () {
-
-// };
+ Chronometer.prototype.resetClick = function () {
+  this.currentTime = 0;
+ };
 
 // Chronometer.prototype.splitClick = function () {
 
 // };
+
+var newChrono = new Chronometer;
+
+
